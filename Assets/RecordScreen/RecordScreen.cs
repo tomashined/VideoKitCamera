@@ -16,7 +16,11 @@ public class RecordScreen : MonoBehaviour
     {
         root = uiDocument.rootVisualElement;
         view = root.Q<VisualElement>("View");
+        streamButton = root.Q<Button>("Stream");
         recordButton = root.Q<Button>("Record");
+        
+        streamButton.clicked += OnStreamButtonPressed;
+        recordButton.clicked += OnRecordButtonPressed;
     }
     
     public void OnStreamButtonPressed()
