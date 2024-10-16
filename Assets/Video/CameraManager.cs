@@ -17,7 +17,7 @@ namespace Video
         [SerializeField] private bool isRecording;
         
         [Header("Camera")]
-        [SerializeField] private VideoData videoData;
+        [SerializeField] public VideoData videoData;
         [SerializeField] private CameraDevice cameraDevice;
         [SerializeField] private Texture2D cameraTexture;
         

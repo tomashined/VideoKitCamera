@@ -22,7 +22,12 @@ public class RecordScreen : MonoBehaviour
         streamButton.clicked += OnStreamButtonPressed;
         recordButton.clicked += OnRecordButtonPressed;
     }
-    
+
+    private void Start()
+    {
+        view.style.backgroundImage = cameraManager.videoData.Texture;
+    }
+
     public void OnStreamButtonPressed()
     {
         if (cameraManager.IsStreaming)
@@ -34,6 +39,7 @@ public class RecordScreen : MonoBehaviour
         {
             cameraManager.StartStreaming();
             streamButton.text = "Stop Streaming";
+            view.style.backgroundImage = cameraManager.videoData.Texture;
         }
     }
 
