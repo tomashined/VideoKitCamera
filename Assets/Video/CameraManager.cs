@@ -23,6 +23,7 @@ namespace Video
         
         public bool IsStreaming => isStreaming;
         public bool IsRecording => isRecording;
+        public Texture2D CameraTexture => cameraTexture;
 
         private void Awake()
         {
@@ -74,6 +75,7 @@ namespace Video
         {
             Debug.Log($"OnRecordingCompleted(): {mediaAsset.width}x{mediaAsset.height}@{mediaAsset.frameRate} - {mediaAsset.path}");
             mediaAsset.SaveToCameraRoll();
+            isRecording = false;
         }
 
         public void StartStreaming()
