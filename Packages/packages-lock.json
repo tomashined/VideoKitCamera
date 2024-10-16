@@ -1,5 +1,23 @@
 {
   "dependencies": {
+    "ai.fxn.fxn3d": {
+      "version": "0.0.26",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.1"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "ai.videokit.videokit": {
+      "version": "0.0.21",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "ai.fxn.fxn3d": "0.0.26"
+      },
+      "url": "https://registry.npmjs.com"
+    },
     "com.unity.2d.animation": {
       "version": "10.1.3",
       "depth": 1,
@@ -14,7 +32,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.2d.aseprite": {
-      "version": "1.1.6",
+      "version": "1.1.5",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -103,13 +121,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.collab-proxy": {
-      "version": "2.5.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
     "com.unity.collections": {
       "version": "2.4.3",
       "depth": 2,
@@ -141,7 +152,7 @@
         "com.unity.2d.spriteshape": "10.0.6",
         "com.unity.2d.tilemap": "1.0.0",
         "com.unity.2d.tilemap.extras": "4.0.2",
-        "com.unity.2d.aseprite": "1.1.6"
+        "com.unity.2d.aseprite": "1.1.5"
       }
     },
     "com.unity.ide.rider": {
@@ -193,6 +204,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.core": {
       "version": "17.0.3",
       "depth": 1,
@@ -201,7 +219,7 @@
         "com.unity.burst": "1.8.14",
         "com.unity.mathematics": "1.3.2",
         "com.unity.ugui": "2.0.0",
-        "com.unity.collections": "2.4.3",
+        "com.unity.collections": "2.4.1",
         "com.unity.modules.physics": "1.0.0",
         "com.unity.modules.terrain": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
