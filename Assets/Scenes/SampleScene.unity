@@ -338,8 +338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff9f026f0e048c488dff414bac2d145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraManager: {fileID: 0}
-  cameraRecorder: {fileID: 0}
+  recordScreen: {fileID: 557881689}
+  cameraManager: {fileID: 1617335137}
+  cameraRecorder: {fileID: 1617335136}
   isInitialized: 0
   isStreaming: 0
   isRecording: 0

@@ -7,6 +7,8 @@ namespace Video
     [RequireComponent(typeof(VideoKitCameraManager), typeof(VideoKitRecorder))]
     public class CameraManager : MonoBehaviour
     {
+        [SerializeField] private RecordScreen recordScreen;
+        
         [Header("Components")]
         [SerializeField] private VideoKitCameraManager cameraManager;
         [SerializeField] private VideoKitRecorder cameraRecorder;
@@ -32,7 +34,8 @@ namespace Video
             
             cameraManager.playOnAwake = false;
             cameraManager.OnCameraFrame?.AddListener(OnCameraFrame);
-            
+
+            cameraRecorder.format = MediaRecorder.Format.HEVC;
             cameraRecorder.prepareOnAwake = false;
             cameraRecorder.videoMode = VideoKitRecorder.VideoMode.CameraDevice;
             cameraRecorder.cameraManager = cameraManager;
@@ -69,6 +72,8 @@ namespace Video
                 isStreaming = cameraManager.running;
                 
                 Debug.Log($"Is streaming: {isStreaming}");
+                
+                recordScreen.ShowTexture();
             }
         }
         private void OnRecordingCompleted(MediaAsset mediaAsset)

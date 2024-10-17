@@ -39,7 +39,7 @@ public class RecordScreen : MonoBehaviour
 
     private void Start()
     {
-        view.style.backgroundImage = cameraManager.CameraTexture;
+        
     }
 
     public void OnStreamButtonPressed()
@@ -53,8 +53,12 @@ public class RecordScreen : MonoBehaviour
         {
             cameraManager.StartStreaming();
             streamButton.text = "Stop Streaming";
-            view.style.backgroundImage = cameraManager.CameraTexture;
         }
+    }
+
+    public void ShowTexture()
+    {
+        view.style.backgroundImage = cameraManager.CameraTexture;
     }
 
     public void OnRecordButtonPressed()
