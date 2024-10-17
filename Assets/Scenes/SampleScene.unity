@@ -317,6 +317,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1617335135}
   - component: {fileID: 1617335134}
+  - component: {fileID: 1617335137}
+  - component: {fileID: 1617335136}
   m_Layer: 0
   m_Name: CameraManager
   m_TagString: Untagged
@@ -336,8 +338,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff9f026f0e048c488dff414bac2d145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraManager: {fileID: 0}
+  cameraRecorder: {fileID: 0}
+  isInitialized: 0
   isStreaming: 0
   isRecording: 0
+  videoData:
+    name: 
+    resolution:
+      Width: 0
+      Height: 0
+      FrameRate: 0
+    texture: {fileID: 0}
+  cameraTexture: {fileID: 0}
 --- !u!4 &1617335135
 Transform:
   m_ObjectHideFlags: 0
@@ -353,6 +366,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1617335136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617335133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fffa95ffc0b4c7a87ce2d4c7fd1873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  format: 0
+  prepareOnAwake: 0
+  videoMode: 1
+  resolution: 1
+  customResolution: {x: 1280, y: 720}
+  cameras: []
+  texture: {fileID: 0}
+  cameraManager: {fileID: 0}
+  _frameRate: 10
+  frameSkip: 0
+  watermarkMode: 0
+  _watermark: {fileID: 0}
+  _watermarkRect:
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  audioMode: 0
+  audioManager: {fileID: 0}
+  configureAudioManager: 1
+  audioListener: {fileID: 0}
+  audioSource: {fileID: 0}
+  recordingAction: 0
+  OnRecordingCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  mediaPathPrefix: recordings
+  videoBitRate: 20000000
+  keyframeInterval: 2
+  audioBitRate: 64000
+--- !u!114 &1617335137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617335133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98622613d505143a9a06b4b11b0a82cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capabilities: 0
+  playOnAwake: 0
+  _facing: 0
+  resolution: 3
+  frameRate: 30
+  focusMode: 0
+  exposureMode: 0
+  OnCameraFrame:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
