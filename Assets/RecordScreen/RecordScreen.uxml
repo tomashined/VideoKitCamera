@@ -1,7 +1,11 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <engine:VisualElement style="flex-grow: 1; background-color: rgb(0, 0, 0);">
         <engine:VisualElement name="View" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Images/e1cd570892fabc80ea5d90902d80524c.png?fileID=2800000&amp;guid=152b6c6873aa4ab42bad7a40d7125946&amp;type=3#e1cd570892fabc80ea5d90902d80524c&quot;); -unity-background-scale-mode: scale-and-crop; background-color: rgba(0, 0, 0, 0);" />
-        <engine:Button text="Stream" name="Stream" style="position: absolute; width: 128px; height: 64px; right: 0; top: 33%;" />
-        <engine:Button text="Record" name="Record" style="position: absolute; width: 128px; height: 64px; right: 0; top: 66%;" />
+        <engine:Button text="Stream" name="Stream" style="position: absolute; width: 128px; height: 64px; right: 0; top: 20%;" />
+        <engine:Button text="Record" name="Record" style="position: absolute; width: 128px; height: 64px; right: 0; top: 40%;" />
+        <engine:Button text="Replay" name="Replay" style="position: absolute; width: 128px; height: 64px; right: 0; top: 60%;" />
+        <engine:Button text="Find" name="Find" style="position: absolute; width: 128px; height: 64px; right: 0; top: 80%; overflow: visible;">
+            <engine:IntegerField value="60" name="Find" style="position: absolute; right: 0; top: 100%; left: 0; width: 100%; height: 50px;" />
+        </engine:Button>
     </engine:VisualElement>
 </engine:UXML>

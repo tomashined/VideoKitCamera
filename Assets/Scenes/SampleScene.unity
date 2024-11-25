@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -118,6 +119,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &49088264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49088265}
+  - component: {fileID: 49088266}
+  m_Layer: 0
+  m_Name: ReplayManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &49088265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49088264}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &49088266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49088264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6def234afa6d8a4a9e0b07a6dbdb827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPath: C:\Users\tomas\Downloads\recording_2024_11_21_11_19_33_041.mp4
+  timestampMs: 0
+  width: 0
+  height: 0
+  frameRate: 0
+  durationMs: 0
 --- !u!1 &557881687
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiDocument: {fileID: 1461211037}
   cameraManager: {fileID: 1617335134}
+  replayManager: {fileID: 49088266}
 --- !u!1 &1430763079
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,3 +491,4 @@ SceneRoots:
   - {fileID: 1461211038}
   - {fileID: 557881688}
   - {fileID: 1617335135}
+  - {fileID: 49088265}

@@ -8,10 +8,12 @@ public class RecordScreen : MonoBehaviour
 {
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private CameraManager cameraManager;
+    [SerializeField] private ReplayManager replayManager;
 
     private VisualElement root;
     private VisualElement view;
-    private Button streamButton, recordButton;
+    private Button streamButton, recordButton, replayButton, findButton;
+    private IntegerField findField;
 
     private Texture2D texture;
     [CreateProperty] private Texture2D Texture
@@ -30,17 +32,25 @@ public class RecordScreen : MonoBehaviour
         view = root.Q<VisualElement>("View");
         streamButton = root.Q<Button>("Stream");
         recordButton = root.Q<Button>("Record");
+        replayButton = root.Q<Button>("Replay");
+        findButton = root.Q<Button>("Find");
+        findField = findButton.Q<IntegerField>("Find");
         root = view.parent;
         
-        view.RegisterCallback<ClickEvent>(evt => view.style.backgroundImage = cameraManager.CameraTexture);
+        view.RegisterCallback<ClickEvent>(evt => SetTexture(cameraManager.CameraTexture));
         streamButton.clicked += OnStreamButtonPressed;
         recordButton.clicked += OnRecordButtonPressed;
+        replayButton.clicked += () => replayManager.OnReplayButtonPressed(SetTexture);
+        findButton.clicked += () => replayManager.OnFindButtonPressed(SetTexture);
+        findField.RegisterValueChangedCallback(evt => replayManager.OnFindFieldChanged(evt.newValue));
     }
 
     private void Start()
     {
         
     }
+    
+    public void SetTexture(Texture2D texture) => view.style.backgroundImage = texture;
 
     public void OnStreamButtonPressed()
     {
