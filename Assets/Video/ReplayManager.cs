@@ -21,7 +21,6 @@ namespace Video
         [SerializeField] private float frameRate;
         [SerializeField] private int durationMs;
         [SerializeField] private Texture2D texture;
-        [SerializeField] private IEnumerable<PixelBuffer> pixelBuffers;
         
         private async Task LoadVideo(Action<Texture2D> onSetTexture)
         {
@@ -39,7 +38,6 @@ namespace Video
             // Create and display texture
             texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
             onSetTexture?.Invoke(texture);
-            pixelBuffers = mediaAsset.Read<PixelBuffer>();
         }
         
         public async void OnReplayButtonPressed(Action<Texture2D> onSetTexture)
@@ -47,7 +45,7 @@ namespace Video
             await LoadVideo(onSetTexture);
             
             // Read pixel buffers
-            foreach (var pixelBuffer in pixelBuffers) {
+            foreach (var pixelBuffer in mediaAsset.Read<PixelBuffer>()) {
                 // Copy pixel data into the texture
                 var textureBuffer = new PixelBuffer(texture);
                 pixelBuffer.CopyTo(textureBuffer);
@@ -67,7 +65,7 @@ namespace Video
             timestampMs = Mathf.Clamp(timestampMs, 0, durationMs);
             
             var textureBuffer = new PixelBuffer(texture);
-            var pixelBuffer = pixelBuffers.First(buffer => buffer.timestamp >= timestampMs);
+            var pixelBuffer = mediaAsset.Read<PixelBuffer>().First(buffer => buffer.timestamp >= timestampMs);
             Debug.Log($"Frame at {timestampMs} is {pixelBuffer.timestamp}");
             pixelBuffer.CopyTo(textureBuffer);
             texture.Apply();
