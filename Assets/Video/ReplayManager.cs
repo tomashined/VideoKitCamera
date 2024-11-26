@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using VideoKit;
+using VideoKit.Clocks;
 namespace Video
 {
     public class ReplayManager : MonoBehaviour
@@ -103,32 +104,25 @@ namespace Video
             timestampNs = (long)(timestampMs * 1000000f);
             await Task.Yield();
             
-            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-            
             var recorder = await MediaRecorder.Create(
                 format: MediaRecorder.Format.MP4,
                 width: width,
                 height: height,
                 frameRate: frameRate
                 );
-            startTimestampNs = -1;
+            FixedClock fixedClock = new FixedClock(frameRate);
             foreach (var pixelBuffer in mediaAsset.Read<PixelBuffer>())
             {
                 if (pixelBuffer.timestamp >= timestampNs)
                 {
                     var textureBuffer = new PixelBuffer(texture);
                     pixelBuffer.CopyTo(textureBuffer);
-                    timestampNs = pixelBuffer.timestamp;
-                    // Upload the texture data to the GPU
                     texture.Apply();
-                    if (startTimestampNs < 0) startTimestampNs = timestampNs;
+                    Debug.Log(fixedClock.timestamp);
                     using var newpixelBuffer = new PixelBuffer(
-                        texture,            // texture to get pixel data from
-                        timestampNs - startTimestampNs   // pixel buffer timestamp to use for recording
+                        texture,
+                        fixedClock.timestamp 
                         );
-                    
-                    stopwatch.Stop();
-                    //Debug.Log($"Frame at {timestampMs}ms is {timestampNs} after {stopwatch.ElapsedMilliseconds}ms");
                     
                     recorder.Append(newpixelBuffer);
                 }

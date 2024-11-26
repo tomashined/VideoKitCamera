@@ -41,7 +41,7 @@ public class RecordScreen : MonoBehaviour
         streamButton.clicked += OnStreamButtonPressed;
         recordButton.clicked += OnRecordButtonPressed;
         replayButton.clicked += () => replayManager.OnReplayButtonPressed(SetTexture);
-        findButton.clicked += () => replayManager.OnFindButtonPressed(SetTexture);
+        findButton.clicked += () => replayManager.OnFindButtonPressedAndRecord(SetTexture);
         findField.RegisterValueChangedCallback(evt => replayManager.OnFindFieldChanged(evt.newValue));
     }
 
